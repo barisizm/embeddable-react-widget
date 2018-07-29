@@ -65,14 +65,7 @@ module.exports = [{
     filename: 'widget.js',
     library: 'EmbeddableWidget',
     libraryExport: 'default',
-    libraryTarget: 'window',
-  },
-}, {
-  ...defaultConfig,
-  entry: './src/outputs/bookmarklet.js',
-  output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
-    filename: 'bookmarklet.js',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
   },
 }];

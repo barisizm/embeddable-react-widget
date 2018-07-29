@@ -8,7 +8,6 @@ export default class EmbeddableWidget {
 
   static mount() {
     const component = <Widget />;
-
     function doRender() {
       if (EmbeddableWidget.el) {
         throw new Error('EmbeddableWidget is already mounted, unmount first');
