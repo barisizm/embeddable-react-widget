@@ -4,10 +4,12 @@ import Widget from '../components/widget';
 import '../../vendor/cleanslate.css';
 
 export default class EmbeddableWidget {
+
   static el;
 
-  static mount() {
-    const component = <Widget />;
+  static mount(config={}) {
+    const component = <Widget config={config} />;
+
     function doRender() {
       if (EmbeddableWidget.el) {
         throw new Error('EmbeddableWidget is already mounted, unmount first');
@@ -21,6 +23,7 @@ export default class EmbeddableWidget {
       );
       EmbeddableWidget.el = el;
     }
+
     if (document.readyState === 'complete') {
       doRender();
     } else {
