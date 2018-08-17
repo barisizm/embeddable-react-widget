@@ -3,3 +3,11 @@
   border-bottom: none;
   animation-fill-mode: forwards;
 }
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+}

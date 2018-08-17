@@ -16,13 +16,17 @@ class Widget extends Component {
     axios({
       method: 'post',
       url: 'http://localhost:3000/get_banner',
-      data: qs.stringify({tenant_id: 1})
+      data: qs.stringify({tenant_id: this.props.config['tenant_id']})
       })
       .then(function (response) {
         console.log(response)
           thiz.setState({
             link: response['data']['link'],
-            background_color: response['data']['background_color']
+            background_color: response['data']['background_color'],
+            button_text: response['data']['button_text'],
+            content: response['data']['content'],
+            button_color: response['data']['button_color'],
+            text_color: response['data']['text_color']
           })
           console.log('this.state.background_color', thiz.state.background_color)
       })
@@ -35,11 +39,9 @@ class Widget extends Component {
         <div className="widget widget">
           <div className="widget-header">
             <div style={{backgroundColor: this.state.background_color}}>
-            {this.state.link}
-            {this.props.config['button_text']}
-            {this.props.config['content']}
-            {this.props.config['button_color']}
-            {this.props.config['text_color']}
+              <a href={this.state.link} class="button" style={{backgroundColor: this.state.button_color}}>{this.state.button_text}</a>
+              {this.state.content}
+              {this.state.text_color}
             </div>
           </div>
         </div>
